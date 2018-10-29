@@ -23,7 +23,6 @@ exports.validateRegister = {
   nationality: Joi.string(),
   job: Joi.string(),
   facebook: Joi.string(),
-  howToKnowEnouvoSpace: Joi.string(),
   comment: Joi.string(),
   phoneNumber: Joi.string()
 };
