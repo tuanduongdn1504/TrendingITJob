@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "merge_logs": true,
+      "name": "trendingitjob",
+      "script": "app/index.js",
+      "out_file": "out.log",
+      "error_file": "error.log",
+      "log_date_format": "MM/DD/YYYY HH:mm:ss",
+      "instances": 1
+    }
+  ]
+}

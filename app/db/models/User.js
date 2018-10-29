@@ -1,0 +1,29 @@
+'use strict';
+
+const path = require('path');
+const CustomModel = require('./CustomModel');
+
+class User extends CustomModel {
+  static get tableName() {
+    return 'users';
+  }
+
+  static get $hidden() {
+    return ['password', 'resetPassword'];
+  }
+
+  static get relationMappings() {
+    return {
+      role: {
+        relation: CustomModel.BelongsToOneRelation,
+        modelClass: path.join(__dirname, '/Role'),
+        join: {
+          from: 'users.roleId',
+          to: 'role.id'
+        }
+      }
+    };
+  }
+}
+
+module.exports = User;
