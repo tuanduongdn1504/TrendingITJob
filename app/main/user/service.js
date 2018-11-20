@@ -36,7 +36,7 @@ exports.getCodeResetPassword = async (id) => {
       .toString(36)
       .substring(7);
     const subject = 'Verification code';
-    const message = `Your verification code is: <br> <strong style="font-size: 16px">${code}</strong> <br> <br>Verification code will be expired in 5 minutes. <br>If you didn’t request this please contact us immediately.<br> <br>Thanks,<br>CSM EnouvoSpace`;
+    const message = `Your verification code is: <br> <strong style="font-size: 16px">${code}</strong> <br> <br>Verification code will be expired in 5 minutes. <br>If you didn’t request this please contact us immediately.<br> <br>Thanks,<br>TrendingITJob - VT`;
 
     try {
       await sendMail(user.email, subject, message);

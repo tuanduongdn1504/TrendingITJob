@@ -22,7 +22,8 @@ const server = new Hapi.Server({
         if (process.env.NODE_ENV === 'production') {
           // In prod, log a limited error message and throw the default Bad Request error.
           throw err;
-        } else {
+        }
+        else {
           // During development, log and respond with the full error.
           console.error(err);
           throw err;
@@ -55,8 +56,8 @@ const swaggerOptions = {
   host: process.env.HOST,
   basePath: apiVersionOptions.basePath,
   info: {
-    title: 'CSM API Documentation',
-    description: 'This is a CSM API documentation.'
+    title: 'TrendingITJob API Documentation',
+    description: 'This is a TrendingITJob API documentation.'
   },
   deReference: false
 };
