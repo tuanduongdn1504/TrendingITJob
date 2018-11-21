@@ -4,7 +4,7 @@
   "description": "<div align=\"center\">",
   "main": "app",
   "scripts": {
-    "start": "node app",
+    "start": "npm run build && node server.js",
     "dev": "NODE_ENV=development nodemon",
     "knex": "knex",
     "test": "NODE_ENV=test PORT=4000 jest --forceExit --verbose --detectOpenHandles",
