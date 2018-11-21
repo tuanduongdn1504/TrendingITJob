@@ -141,11 +141,11 @@ async function start() {
       },
       hapiAuthJWT
     ]);
-    server.auth.strategy('jwt', 'jwt', {
-      key: process.env.JWT_SECRET || 'tuanBear',
-      validate: validateUser,
-      verifyOptions: { ignoreExpiration: true }
-    });
+    // server.auth.strategy('jwt', 'jwt', {
+    //   key: process.env.JWT_SECRET || 'tuanBear',
+    //   validate: validateUser,
+    //   verifyOptions: { ignoreExpiration: true }
+    // });
 
     server.auth.default('jwt');
     server.route(routes);
