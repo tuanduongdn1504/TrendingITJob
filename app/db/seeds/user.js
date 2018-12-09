@@ -11,15 +11,19 @@ exports.seed = function (knex, Promise) {
       return knex('role')
         .insert([
           {
+            id: 1,
             name: 'admin'
           },
           {
+            id: 2,
             name: 'productOwner'
           },
           {
+            id: 3,
             name: 'company'
           },
           {
+            id: 4,
             name: 'worker'
           }
         ])

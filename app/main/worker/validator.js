@@ -17,31 +17,19 @@ exports.idParam = idNumber()
   .description('id is required');
 
 exports.createWorker = {
-  shortName: Joi.string().required(),
-  name: Joi.string().required(),
-  description: Joi.string(),
-  displayName: objectLocalization().required(),
-  price: Joi.number().required(),
+  // shortName: Joi.string().required(),
+  // description: Joi.string(),
+  // displayName: objectLocalization().required(),
+  // price: Joi.number().required(),
   isActive: Joi.boolean(),
-  isPayByQuantity: Joi.boolean(),
-  isPayWhenCheckout: Joi.boolean(),
-  isDefault: Joi.boolean(),
-  isHour: Joi.boolean(),
-  roomId: Joi.number().required(),
-  workerTypeId: Joi.number().required()
+  userId: Joi.number().required()
 };
 
 exports.updateWorker = {
-  shortName: Joi.string(),
-  name: Joi.string(),
-  description: Joi.string(),
-  displayName: objectLocalization(),
-  price: Joi.number(),
+  // shortName: Joi.string(),
+  // description: Joi.string(),
+  // displayName: objectLocalization(),
+  // price: Joi.number(),
   isActive: Joi.boolean(),
-  isPayByQuantity: Joi.boolean(),
-  isPayWhenCheckout: Joi.boolean(),
-  isDefault: Joi.boolean(),
-  isHour: Joi.boolean(),
-  roomId: Joi.number(),
-  workerTypeId: Joi.number()
+  userId: Joi.number()
 };
