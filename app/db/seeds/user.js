@@ -17,10 +17,10 @@ exports.seed = function (knex, Promise) {
             name: 'productOwner'
           },
           {
-            name: 'user'
+            name: 'company'
           },
           {
-            name: 'company'
+            name: 'worker'
           }
         ])
         .returning('id');

@@ -43,12 +43,12 @@ exports.createUser = async (body) => {
     if (body.password) {
       body.password = await bcrypt.hash(body.password, 5);
     }
-    // body.roleId = ROLES.USER;
+    // body.roleId = ROLES.WORKER;
     // const result = await Models.User.query()
     //   .insert(body)
     //   .returning('*')
     //   .select('username', 'email', 'password', 'users.id');
-    // result.scope = ROLENAMES.USER;
+    // result.scope = ROLENAMES.WORKER;
     // return result;
     // dummy: del
     await Models.User.query().insert(body);

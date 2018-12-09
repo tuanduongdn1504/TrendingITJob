@@ -12,7 +12,7 @@ const aclRule = {
       permissions: ['get', 'create', 'edit']
     },
     {
-      resource: 'packages',
+      resource: 'workers',
       permissions: ['get', 'create', 'edit']
     }
   ],
@@ -26,7 +26,7 @@ const aclRule = {
       permissions: ['get', 'create', 'edit']
     },
     {
-      resource: 'packages',
+      resource: 'workers',
       permissions: ['get', 'create', 'edit']
     }
   ]

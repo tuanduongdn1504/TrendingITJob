@@ -2,14 +2,16 @@
 
 const ROLES = {
   ADMIN: 1,
-  STAFF: 2,
-  USER: 3
+  PRODUCTOWNER: 2,
+  COMPANY: 3,
+  WORKER: 4
 };
 
 const ROLENAMES = {
   ADMIN: 'admin',
-  STAFF: 'staff',
-  USER: 'user'
+  PRODUCTOWNER: 'productOwner',
+  COMPANY: 'company',
+  WORKER: 'worker'
 };
 
 module.exports = {

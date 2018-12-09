@@ -10,7 +10,7 @@ class Role extends CustomModel {
 
   static get relationMappings() {
     return {
-      packages: {
+      users: {
         relation: CustomModel.HasManyRelation,
         modelClass: path.join(__dirname, '/User'),
         join: {
