@@ -35,23 +35,6 @@ exports.getOne = {
   }
 };
 
-exports.resetPassword = {
-  description: 'Get Verification code reset Password',
-  notes: 'Return a Verification code',
-  tags: ['api', 'v1'],
-  handler: controller.getCodeResetPassword,
-  auth: {
-    strategy: 'jwt',
-    scope: ['admin', 'projectOwner', 'user', 'company']
-  },
-  validate: {
-    headers: validator.checkToken,
-    params: {
-      id: validator.idParam
-    }
-  }
-};
-
 exports.createOne = {
   description: 'Create a new User',
   notes: 'Return created User',
@@ -85,23 +68,23 @@ exports.updateOne = {
   }
 };
 
-exports.updatePassword = {
-  description: 'Create a new password',
-  notes: 'Return a user',
-  tags: ['api', 'v1'],
-  handler: controller.updatePassword,
-  auth: {
-    strategy: 'jwt',
-    scope: ['admin', 'projectOwner', 'user', 'company']
-  },
-  validate: {
-    headers: validator.checkToken,
-    params: {
-      id: validator.idParam
-    },
-    payload: validator.resetPassword
-  }
-};
+// exports.updatePassword = {
+//   description: 'Create a new password',
+//   notes: 'Return a user',
+//   tags: ['api', 'v1'],
+//   handler: controller.updatePassword,
+//   auth: {
+//     strategy: 'jwt',
+//     scope: ['admin', 'projectOwner', 'user', 'company']
+//   },
+//   validate: {
+//     headers: validator.checkToken,
+//     params: {
+//       id: validator.idParam
+//     },
+//     payload: validator.resetPassword
+//   }
+// };
 
 exports.deleteOne = {
   description: 'Delete a User',

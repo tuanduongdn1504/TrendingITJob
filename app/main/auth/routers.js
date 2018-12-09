@@ -16,6 +16,16 @@ const Routes = [
     method: 'POST',
     path: '/api/v1/auth/facebook',
     config: handler.facebook
+  },
+  {
+    method: 'POST',
+    path: '/api/v1/auth/forgotPassword',
+    config: handler.forgotPassword
+  },
+  {
+    method: 'POST',
+    path: '/api/v1/auth/resetPassword',
+    config: handler.resetPassword
   }
 ];
 

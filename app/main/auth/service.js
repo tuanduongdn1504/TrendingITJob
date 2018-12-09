@@ -3,13 +3,16 @@
 const Boom = require('boom');
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
+const crypto = require('crypto');
 const jsonwebtoken = require('jsonwebtoken');
 const Models = require('../../db/models');
 const userService = require('../user/service');
 const auth = require('./authSocial');
 const serviceUser = require('../user/service');
+const MailUtils = require('../../emailService');
 
 const secret = process.env.JWT_SECRET || 'tuanBear';
+const mainWebUrl = process.env.WEB_URL || 'https://csm-web-staging.enouvo.com/';
 
 exports.login = async (body) => {
   try {
@@ -38,8 +41,7 @@ exports.login = async (body) => {
 
     const data = _.pick(user, ['username', 'email', 'id', 'scope']);
     return await _.assign({ token: createJwtToken(data) }, data);
-  }
-  catch (err) {
+  } catch (err) {
     throw err;
   }
 };
@@ -61,8 +63,7 @@ exports.register = async (body) => {
     const data = _.pick(result, ['username', 'email', 'id', 'scope']);
 
     return await _.assign({ token: createJwtToken(data) }, data);
-  }
-  catch (err) {
+  } catch (err) {
     throw err;
   }
 };
@@ -109,10 +110,46 @@ exports.facebook = async (request, response) => {
     const newUser = await serviceUser.createUser(body);
     const data = _.pick(newUser, ['username', 'email', 'id', 'scope']);
     return await _.assign({ token: createJwtToken(data) }, data);
-  }
-  catch (err) {
+  } catch (err) {
     throw err;
   }
+};
+
+exports.forgotPassword = async (email) => {
+  const user = await Models.User.query().findOne({ email });
+  if (!user) {
+    throw Boom.notFound('Email is not found');
+  }
+  // Generate random token.
+  const resetPasswordToken = crypto.randomBytes(64).toString('hex');
+  await MailUtils.sendEmailResetPassword(
+    'panzer3553@gmail.com',
+    `${mainWebUrl}resetPassword?token=${resetPasswordToken}`
+  );
+  const resetPasswordExpire = new Date();
+  resetPasswordExpire.setDate(resetPasswordExpire.getDate() + 1);
+  await await Models.User.query().patchAndFetchById(user.id, {
+    resetPasswordToken,
+    resetPasswordExpire: resetPasswordExpire.toISOString() // Token will expire in 24 hours
+  });
+  return { message: 'Your reset password request has been confirmed' };
+};
+
+exports.resetPassword = async (token, password) => {
+  const user = await Models.User.query()
+    .where('resetPasswordToken', token)
+    .where('resetPasswordExpire', '>', new Date().toISOString())
+    .first();
+  if (!user) {
+    throw Boom.conflict('Your password token is incorrect ore expired');
+  }
+  const newHashPassword = await bcrypt.hash(password, 5);
+  await Models.User.query().patchAndFetchById(user.id, {
+    resetPasswordToken: null,
+    resetPasswordExpire: null,
+    password: newHashPassword
+  });
+  return { message: 'Your password has been reset' };
 };
 
 function createJwtToken(data) {

@@ -7,7 +7,14 @@ class User extends CustomModel {
   static get tableName() {
     return 'users';
   }
+  $beforeInsert() {
+    this.createdAt = new Date().toISOString();
+    this.updatedAt = new Date().toISOString();
+  }
 
+  $beforeUpdate() {
+    this.updatedAt = new Date().toISOString();
+  }
   static get $hidden() {
     return ['password', 'resetPassword'];
   }

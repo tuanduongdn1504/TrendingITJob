@@ -27,3 +27,20 @@ exports.facebook = async (request, response) => {
     throw err;
   }
 };
+
+exports.forgotPassword = async (request) => {
+  try {
+    return await service.forgotPassword(request.payload.email);
+  } catch (err) {
+    throw err;
+  }
+};
+
+exports.resetPassword = async (request) => {
+  try {
+    const { resetPasswordToken, password } = request.payload;
+    return await service.resetPassword(resetPasswordToken, password);
+  } catch (err) {
+    throw err;
+  }
+};

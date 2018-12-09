@@ -5,6 +5,7 @@ exports.up = function (knex, Promise) {
     table.increments('id').primary();
     table.string('name');
     table.string('avatar');
+    table.date('birthday');
     table.string('username', 191).unique();
     table
       .string('email', 191)
@@ -21,6 +22,11 @@ exports.up = function (knex, Promise) {
     table.string('facebook');
     table.text('comment');
     table.text('phoneNumber');
+    table.string('twitter');
+    table.string('linkedin');
+    table.boolean('isActive').defaultTo(true);
+    table.timestamp('createdAt');
+    table.timestamp('updatedAt');
   });
 };
 

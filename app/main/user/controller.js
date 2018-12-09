@@ -19,24 +19,24 @@ exports.getOne = async (request) => {
   }
 };
 
-exports.getCodeResetPassword = async (request) => {
-  try {
-    const { id } = request.params;
-    return await service.getCodeResetPassword(id);
-  } catch (err) {
-    throw err;
-  }
-};
+// exports.getCodeResetPassword = async (request) => {
+//   try {
+//     const { id } = request.params;
+//     return await service.getCodeResetPassword(id);
+//   } catch (err) {
+//     throw err;
+//   }
+// };
 
-exports.updatePassword = async (request) => {
-  try {
-    const { id } = request.params;
-    const { payload } = request;
-    return await service.updatePassword(id, payload);
-  } catch (err) {
-    throw err;
-  }
-};
+// exports.updatePassword = async (request) => {
+//   try {
+//     const { id } = request.params;
+//     const { payload } = request;
+//     return await service.updatePassword(id, payload);
+//   } catch (err) {
+//     throw err;
+//   }
+// };
 
 exports.createOne = async (request) => {
   try {

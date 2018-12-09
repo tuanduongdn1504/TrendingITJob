@@ -1,7 +1,7 @@
 'use strict';
 
 const redis = require('../redis');
-// const aclRule = require('./config');
+const aclRule = require('./config');
 
 const prefix = 'aclrule';
 

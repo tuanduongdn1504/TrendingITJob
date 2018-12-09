@@ -29,7 +29,10 @@ exports.createUser = {
   job: Joi.string(),
   facebook: Joi.string(),
   comment: Joi.string(),
-  phoneNumber: Joi.string()
+  phoneNumber: Joi.string(),
+  gender: Joi.string().valid(['Male', 'Female']),
+  linkedin: Joi.string().allow(null),
+  twitter: Joi.string().allow(null)
 };
 
 exports.updateUser = {
@@ -43,10 +46,8 @@ exports.updateUser = {
   job: Joi.string(),
   facebook: Joi.string(),
   comment: Joi.string(),
-  phoneNumber: Joi.string()
-};
-
-exports.resetPassword = {
-  verificationCode: Joi.string().required(),
-  password: strPassword().required()
+  phoneNumber: Joi.string(),
+  gender: Joi.string().valid(['Male', 'Female']),
+  linkedin: Joi.string().allow(null),
+  twitter: Joi.string().allow(null)
 };

@@ -38,3 +38,10 @@ exports.validateFacebook = {
     roleId: Joi.number().required()
   }
 };
+
+exports.forgotPassword = { email: strEmail().required() };
+
+exports.resetPassword = {
+  resetPasswordToken: Joi.string().required(),
+  password: strPassword().required()
+};

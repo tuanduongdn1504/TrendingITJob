@@ -14,16 +14,6 @@ const Routes = [
     config: handler.getOne
   },
   {
-    method: 'GET',
-    path: '/api/v1/users/{id}/resetPassword',
-    config: handler.resetPassword
-  },
-  {
-    method: 'POST',
-    path: '/api/v1/users/{id}/updatePassword',
-    config: handler.updatePassword
-  },
-  {
     method: 'POST',
     path: '/api/v1/users',
     config: handler.createOne

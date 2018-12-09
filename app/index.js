@@ -22,8 +22,7 @@ const server = new Hapi.Server({
         if (process.env.NODE_ENV === 'production') {
           // In prod, log a limited error message and throw the default Bad Request error.
           throw err;
-        }
-        else {
+        } else {
           // During development, log and respond with the full error.
           console.error(err);
           throw err;
@@ -141,17 +140,16 @@ async function start() {
       },
       hapiAuthJWT
     ]);
-    // server.auth.strategy('jwt', 'jwt', {
-    //   key: process.env.JWT_SECRET || 'tuanBear',
-    //   validate: validateUser,
-    //   verifyOptions: { ignoreExpiration: true }
-    // });
+    server.auth.strategy('jwt', 'jwt', {
+      key: process.env.JWT_SECRET || 'tuanBear',
+      validate: validateUser,
+      verifyOptions: { ignoreExpiration: true }
+    });
 
     server.auth.default('jwt');
     server.route(routes);
     await server.start();
-  }
-  catch (err) {
+  } catch (err) {
     console.error(err);
     process.exit(1);
   }
