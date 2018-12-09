@@ -8,7 +8,23 @@ const aclRule = {
       permissions: ['get', 'create', 'edit']
     },
     {
-      resource: 'rooms',
+      resource: 'projects',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'posts',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'tags',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'productOwners',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'companies',
       permissions: ['get', 'create', 'edit']
     },
     {
@@ -16,13 +32,89 @@ const aclRule = {
       permissions: ['get', 'create', 'edit']
     }
   ],
-  customer: [
+  productOwner: [
     {
       resource: 'bookings',
       permissions: ['get', 'create', 'edit']
     },
     {
-      resource: 'rooms',
+      resource: 'projects',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'posts',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'tags',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'productOwners',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'companies',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'workers',
+      permissions: ['get', 'create', 'edit']
+    }
+  ],
+  company: [
+    {
+      resource: 'bookings',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'projects',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'posts',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'tags',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'productOwners',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'companies',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'workers',
+      permissions: ['get', 'create', 'edit']
+    }
+  ],
+  worker: [
+    {
+      resource: 'bookings',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'projects',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'posts',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'tags',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'productOwners',
+      permissions: ['get', 'create', 'edit']
+    },
+    {
+      resource: 'companies',
       permissions: ['get', 'create', 'edit']
     },
     {
