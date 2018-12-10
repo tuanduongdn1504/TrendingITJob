@@ -7,8 +7,10 @@ const crypto = require('crypto');
 const jsonwebtoken = require('jsonwebtoken');
 const Models = require('../../db/models');
 const userService = require('../user/service');
+const productOwnerService = require('../productOwner/service');
+const companyService = require('../company/service');
+const workerService = require('../worker/service');
 const auth = require('./authSocial');
-const serviceUser = require('../user/service');
 const MailUtils = require('../../emailService');
 
 const secret = process.env.JWT_SECRET || 'tuanBear';
@@ -61,6 +63,14 @@ exports.register = async (body) => {
 
     const result = await userService.createUser(body);
     const data = _.pick(result, ['username', 'email', 'id', 'scope']);
+    switch (body.roleId) {
+      case 2:
+        await productOwnerService.createProductOwner({ userId: data.id });
+      case 3:
+        await companyService.createCompany({ userId: data.id });
+      case 4:
+        await workerService.createWorker({ userId: data.id });
+    }
 
     return await _.assign({ token: createJwtToken(data) }, data);
   } catch (err) {
@@ -107,7 +117,7 @@ exports.facebook = async (request, response) => {
       roleId: payload.roleId
     };
 
-    const newUser = await serviceUser.createUser(body);
+    const newUser = await userService.createUser(body);
     const data = _.pick(newUser, ['username', 'email', 'id', 'scope']);
     return await _.assign({ token: createJwtToken(data) }, data);
   } catch (err) {

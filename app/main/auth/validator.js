@@ -14,12 +14,12 @@ exports.validateLogin = {
 };
 
 exports.validateRegister = {
-  name: Joi.string().required(),
+  name: Joi.string(),
   avatar: Joi.string(),
   username: strUsername().required(),
   email: strEmail().required(),
   password: strPassword().required(),
-  roleId: Joi.number(),
+  roleId: Joi.number().required(),
   nationality: Joi.string(),
   job: Joi.string(),
   facebook: Joi.string(),
