@@ -13,7 +13,7 @@ require('dotenv').config();
 
 // create new server instance
 const server = new Hapi.Server({
-  host: '0.0.0.0',
+  host: process.env.APP_HOST || 'localhost',
   port: ~~process.env.PORT || 3000,
   routes: {
     cors: true,
