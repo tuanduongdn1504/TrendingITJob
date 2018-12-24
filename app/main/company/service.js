@@ -2,13 +2,17 @@
 
 const Boom = require('boom');
 const Models = require('../../db/models');
+const bcrypt = require('bcrypt');
+const { ROLES, ROLENAMES } = require('../../constants/roles');
 
 exports.getAllCompany = async (query) => {
   return Models.Company.queryBuilder(query);
 };
 
 exports.getOneCompany = async (id) => {
-  const result = await Models.Company.query().findById(id);
+  const result = await Models.Company.query()
+    .findById(id)
+    .eager('[users]');
   if (!result) {
     throw Boom.notFound('Company not found');
   }
@@ -22,6 +26,9 @@ exports.createCompany = async (body) => {
 
 exports.updateCompany = async (id, body) => {
   try {
+    if (body.password) {
+      body.password = await bcrypt.hash(body.password, 5);
+    }
     const result = await Models.Company.query()
       .update(body)
       .where('id', id)

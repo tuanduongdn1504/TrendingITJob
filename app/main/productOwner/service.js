@@ -2,13 +2,17 @@
 
 const Boom = require('boom');
 const Models = require('../../db/models');
+const bcrypt = require('bcrypt');
+const { ROLES, ROLENAMES } = require('../../constants/roles');
 
 exports.getAllProductOwner = async (query) => {
   return Models.ProductOwner.queryBuilder(query);
 };
 
 exports.getOneProductOwner = async (id) => {
-  const result = await Models.ProductOwner.query().findById(id);
+  const result = await Models.ProductOwner.query()
+    .findById(id)
+    .eager('[users]');
   if (!result) {
     throw Boom.notFound('ProductOwner not found');
   }
@@ -22,6 +26,9 @@ exports.createProductOwner = async (body) => {
 
 exports.updateProductOwner = async (id, body) => {
   try {
+    if (body.password) {
+      body.password = await bcrypt.hash(body.password, 5);
+    }
     const result = await Models.ProductOwner.query()
       .update(body)
       .where('id', id)
