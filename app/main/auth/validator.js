@@ -16,7 +16,7 @@ exports.validateLogin = {
 exports.validateRegister = {
   name: Joi.string(),
   avatar: Joi.string(),
-  username: strUsername(),
+  username: strUsername().required(),
   email: strEmail().required(),
   password: strPassword().required(),
   roleId: Joi.number().required(),
