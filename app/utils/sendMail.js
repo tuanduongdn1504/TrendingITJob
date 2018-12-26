@@ -6,8 +6,8 @@ const nodemailer = require('nodemailer');
 const poolConfig = process.env.SMTP_MAIL || {
   service: 'Gmail',
   auth: {
-    user: 'longnt.developer@gmail.com',
-    pass: 'longnsusu189'
+    user: 'danamaxstorm@gmail.com',
+    pass: 'gauyeusoc'
   }
 };
 const transporter = nodemailer.createTransport(poolConfig);
