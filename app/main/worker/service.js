@@ -34,9 +34,8 @@ exports.getAllWorker = async (query) => {
 };
 
 exports.getOneWorker = async (id) => {
-  const result = await Models.Worker.query()
-    .findById(id)
-    .eager('[users]');
+  const result = await Models.Worker.query().findById(id);
+  // .eager('users');
   if (!result) {
     throw Boom.notFound('Worker not found');
   }
