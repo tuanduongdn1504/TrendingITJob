@@ -10,9 +10,8 @@ exports.getAllCompany = async (query) => {
 };
 
 exports.getOneCompany = async (id) => {
-  const result = await Models.Company.query()
-    .findById(id)
-    .eager('[users]');
+  const result = await Models.Company.query().findById(id);
+  // .eager('users');
   if (!result) {
     throw Boom.notFound('Company not found');
   }

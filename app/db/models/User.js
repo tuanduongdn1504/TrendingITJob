@@ -28,6 +28,30 @@ class User extends CustomModel {
           from: 'users.roleId',
           to: 'role.id'
         }
+      },
+      companies: {
+        relation: CustomModel.HasOneRelation,
+        modelClass: path.join(__dirname, '/Company'),
+        join: {
+          from: 'users.id',
+          to: 'company.userId'
+        }
+      },
+      productOwners: {
+        relation: CustomModel.HasOneRelation,
+        modelClass: path.join(__dirname, '/ProductOwner'),
+        join: {
+          from: 'users.id',
+          to: 'productOwner.userId'
+        }
+      },
+      workers: {
+        relation: CustomModel.HasOneRelation,
+        modelClass: path.join(__dirname, '/Worker'),
+        join: {
+          from: 'users.id',
+          to: 'worker.userId'
+        }
       }
     };
   }

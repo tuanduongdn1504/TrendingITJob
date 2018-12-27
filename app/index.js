@@ -10,13 +10,79 @@ const hapiAuthJWT = require('hapi-auth-jwt2');
 const routes = require('./main/routes');
 
 require('dotenv').config();
+//option: 1
+const corsHeaders = {
+  origin: ['*'],
+  headers: ['Origin', 'X-Requested-With', 'Content-Type'],
+  credentials: true,
+  additionalHeaders: [
+    'access-control-allow-headers',
+    'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin, X-Requested-With, Content-Type, CORRELATION_ID'
+  ],
+  additionalExposedHeaders: [
+    'access-control-allow-headers',
+    'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin, X-Requested-With, Content-Type, CORRELATION_ID'
+  ]
+};
+
+// Options 2:
+// const corsHeaders = {
+//   origin: ['*'],
+//   headers: [
+//     'Access-Control-Allow-Origin',
+//     'Access-Control-Allow-Headers',
+//     'Origin, X-Requested-With, Content-Type',
+//     'CORELATION_ID'
+//   ],
+//   credentials: true,
+//   additionalHeaders: [
+//     'access-control-allow-headers',
+//     'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin, X-Requested-With, Content-Type, CORRELATION_ID'
+//   ],
+//   additionalExposedHeaders: [
+//     'access-control-allow-headers',
+//     'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin, X-Requested-With, Content-Type, CORRELATION_ID'
+//   ]
+// };
+
+// Options 3:
+// const corsHeaders = {
+//   origin: ['*'],
+//   headers: [
+//     'Access-Control-Allow-Origin',
+//     'Access-Control-Allow-Headers',
+//     'Origin, X-Requested-With, Content-Type',
+//     'CORELATION_ID'
+//   ],
+//   credentials: true
+// };
 
 // create new server instance
 const server = new Hapi.Server({
   host: process.env.APP_HOST || 'localhost',
   port: ~~process.env.PORT || 3000,
   routes: {
-    cors: true,
+    // cors: {
+    //   origin: ['*'],
+    //   additionalHeaders: ['token']
+    // }
+    // ------------
+    // cors: {
+    //   origin: ['*'],
+    //   headers: ['Accept', 'Content-Type'],
+    //   additionalHeaders: ['X-Requested-With']
+    // },
+    // ------------
+    // method: '*',
+    // path: '/{any*}',
+    // config: {
+    //   cors: corsHeaders
+    // },
+    // handler: function (request, reply) {
+    //   reply(Boom.notFound());
+    // },
+    // >>> cors
+    cors: corsHeaders,
     validate: {
       failAction: async (request, h, err) => {
         if (process.env.NODE_ENV === 'production') {
