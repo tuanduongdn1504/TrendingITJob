@@ -1,7 +1,7 @@
 # Setup environment
 
 1.  install docker:
-    $brew install docker docker-compose docker-machine xhyve docker-machine-driver-xhyve
+    \$brew install docker docker-compose docker-machine xhyve docker-machine-driver-xhyve
 
 2.  install postgreSQL:
     $brew install
@@ -11,7 +11,7 @@
     $createDb tuanbear
     $psql
     tuanbear=#
-    (Ex: $psql > tuanbear=# \q > $psql -d vietphan > add new DB if exist other DB)
+    (Ex: $psql > tuanbear=# \q > \$psql -d vietphan > add new DB if exist other DB)
 
 3.  download pgadmin:
     https://www.postgresql.org/ftp/pgadmin/pgadmin4/v3.4/macos/
@@ -31,7 +31,7 @@
      "engines": {
     "node": "8.11.3"
     }, // in packagejson
-    $yarn install
+    \$yarn install
 
 $createDb tuanbear //bỏ qua dòng này nếu đã tạo db
 $knex migrate:latest
@@ -48,7 +48,7 @@ Is the server running locally and accepting
 connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
 This solution is little tricky, but it works:
 $rm /usr/local/var/postgres/postmaster.pid
-$brew services restart postgresql
+\$brew services restart postgresql
 (then, restart pgAdmin 4)
 
 # TrendingITJob
@@ -89,6 +89,8 @@ $ knex migrate:rollback
 #Run seed files
 $ knex seed:run
 #Create a named migration or seed file
+# Exampke: knex migrate:make create_role
+# Exampke: knex seed:make ztag
 $ knex migrate:make <name>
 $ knex seed:make <make>
 ```
