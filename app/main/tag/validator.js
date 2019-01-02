@@ -16,14 +16,14 @@ exports.idParam = idNumber()
   .required()
   .description('id is required');
 
-exports.createProductOwner = {
+exports.createTag = {
   shortName: Joi.string().required(),
   description: Joi.string(),
   displayName: Joi.string().required()
   // isActive: Joi.boolean(),
 };
 
-exports.updateProductOwner = {
+exports.updateTag = {
   shortName: Joi.string(),
   description: Joi.string(),
   displayName: Joi.string()

@@ -43,7 +43,7 @@ exports.createOne = {
   },
   validate: {
     headers: validator.checkToken,
-    payload: validator.createProductOwner
+    payload: validator.createCompany
   }
 };
 

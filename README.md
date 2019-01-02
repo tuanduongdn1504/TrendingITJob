@@ -89,8 +89,8 @@ $ knex migrate:rollback
 #Run seed files
 $ knex seed:run
 #Create a named migration or seed file
-# Exampke: knex migrate:make create_role
-# Exampke: knex seed:make ztag
+# Exampke: heroku run knex migrate:make create_role
+# Exampke: heroku run knex seed:make ztag
 $ knex migrate:make <name>
 $ knex seed:make <make>
 ```
