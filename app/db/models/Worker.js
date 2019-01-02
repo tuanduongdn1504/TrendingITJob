@@ -18,12 +18,12 @@ class Worker extends CustomModel {
           to: 'users.id'
         }
       },
-      tag: {
+      cvs: {
         relation: CustomModel.HasManyRelation,
-        modelClass: path.join(__dirname, '/Tag'),
+        modelClass: path.join(__dirname, '/Cv'),
         join: {
           from: 'worker.id',
-          to: 'tag.workerId'
+          to: 'cv.workerId'
         }
       }
     };
