@@ -3,31 +3,31 @@
 const path = require('path');
 const CustomModel = require('./CustomModel');
 
-class Worker extends CustomModel {
+class Cv extends CustomModel {
   static get tableName() {
-    return 'worker';
+    return 'cv';
   }
 
   static get relationMappings() {
     return {
-      users: {
+      workers: {
         relation: CustomModel.BelongsToOneRelation,
-        modelClass: path.join(__dirname, '/User'),
+        modelClass: path.join(__dirname, '/Worker'),
         join: {
-          from: 'worker.userId',
-          to: 'users.id'
+          from: 'cv.workerId',
+          to: 'worker.id'
         }
       },
-      cvs: {
+      tagCvs: {
         relation: CustomModel.HasManyRelation,
-        modelClass: path.join(__dirname, '/Cv'),
+        modelClass: path.join(__dirname, '/TagCv'),
         join: {
-          from: 'worker.id',
-          to: 'cv.workerId'
+          from: 'cv.id',
+          to: 'tagCv.cvId'
         }
       }
     };
   }
 }
 
-module.exports = Worker;
+module.exports = Cv;

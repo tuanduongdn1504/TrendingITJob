@@ -10,28 +10,28 @@ class Tag extends CustomModel {
 
   static get relationMappings() {
     return {
-      posts: {
+      tagPosts: {
         relation: CustomModel.HasManyRelation,
-        modelClass: path.join(__dirname, '/Post'),
+        modelClass: path.join(__dirname, '/TagPost'),
         join: {
           from: 'tag.id',
-          to: 'post.tagId'
+          to: 'tagPost.tagId'
         }
       },
-      projects: {
+      tagProjects: {
         relation: CustomModel.HasManyRelation,
-        modelClass: path.join(__dirname, '/Project'),
+        modelClass: path.join(__dirname, '/TagProject'),
         join: {
           from: 'tag.id',
-          to: 'project.tagId'
+          to: 'tagProject.tagId'
         }
       },
-      cvs: {
+      tagCvs: {
         relation: CustomModel.HasManyRelation,
-        modelClass: path.join(__dirname, '/Cv'),
+        modelClass: path.join(__dirname, '/TagCv'),
         join: {
           from: 'tag.id',
-          to: 'cv.tagId'
+          to: 'tagCv.tagId'
         }
       }
     };

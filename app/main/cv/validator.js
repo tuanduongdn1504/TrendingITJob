@@ -16,16 +16,14 @@ exports.idParam = idNumber()
   .required()
   .description('id is required');
 
-exports.createTag = {
-  shortName: Joi.string().required(),
+exports.createCv = {
+  nameWorker: Joi.string().required(),
   description: Joi.string(),
-  displayName: Joi.string().required()
-  // isActive: Joi.boolean(),
+  workerId: Joi.number().required()
 };
 
-exports.updateTag = {
-  shortName: Joi.string(),
+exports.updateCv = {
+  nameWorker: Joi.string(),
   description: Joi.string(),
-  displayName: Joi.string()
-  // isActive: Joi.boolean(),
+  workerId: Joi.number()
 };

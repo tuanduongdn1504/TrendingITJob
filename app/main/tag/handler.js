@@ -43,7 +43,7 @@ exports.createOne = {
   },
   validate: {
     headers: validator.checkToken,
-    payload: validator.createProductOwner
+    payload: validator.createTag
   }
 };
 
@@ -61,7 +61,7 @@ exports.updateOne = {
     params: {
       id: validator.idParam
     },
-    payload: validator.updateProductOwner
+    payload: validator.updateTag
   }
 };
 
