@@ -7,6 +7,7 @@ const ProductOwner = require('./ProductOwner');
 const Tag = require('./Tag');
 const Cv = require('./Cv');
 const TagCv = require('./TagCv');
+const Post = require('./Post');
 
 module.exports = {
   User,
@@ -15,5 +16,6 @@ module.exports = {
   ProductOwner,
   Tag,
   Cv,
-  TagCv
+  TagCv,
+  Post
 };
