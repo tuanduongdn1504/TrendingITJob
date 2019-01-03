@@ -9,6 +9,7 @@ const Cv = require('./Cv');
 const TagCv = require('./TagCv');
 const Post = require('./Post');
 const TagPost = require('./TagPost');
+const Project = require('./Project');
 
 module.exports = {
   User,
@@ -19,5 +20,6 @@ module.exports = {
   Cv,
   TagCv,
   Post,
-  TagPost
+  TagPost,
+  Project
 };
