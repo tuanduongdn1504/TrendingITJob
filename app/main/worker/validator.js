@@ -17,19 +17,21 @@ exports.idParam = idNumber()
   .description('id is required');
 
 exports.createWorker = {
-  // shortName: Joi.string().required(),
-  // description: Joi.string(),
-  // displayName: objectLocalization().required(),
-  // price: Joi.number().required(),
+  // name: Joi.string().required(),
+  level: Joi.string(),
+  image: Joi.string(),
+  rating: Joi.number(),
+  location: Joi.string(),
   isActive: Joi.boolean(),
   userId: Joi.number().required()
 };
 
 exports.updateWorker = {
-  // shortName: Joi.string(),
-  // description: Joi.string(),
-  // displayName: objectLocalization(),
-  // price: Joi.number(),
+  // name: Joi.string(),
+  level: Joi.string(),
+  image: Joi.string(),
+  rating: Joi.number(),
+  location: Joi.string(),
   isActive: Joi.boolean(),
   userId: Joi.number()
 };

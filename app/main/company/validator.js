@@ -17,19 +17,19 @@ exports.idParam = idNumber()
   .description('id is required');
 
 exports.createCompany = {
-  // shortName: Joi.string().required(),
-  // description: Joi.string(),
-  // displayName: objectLocalization().required(),
-  // price: Joi.number().required(),
+  name: Joi.string().required(),
+  image: Joi.string(),
+  numberOfJob: Joi.number().required(),
+  location: Joi.string(),
   isActive: Joi.boolean(),
   userId: Joi.number().required()
 };
 
 exports.updateCompany = {
-  // shortName: Joi.string(),
-  // description: Joi.string(),
-  // displayName: objectLocalization(),
-  // price: Joi.number(),
+  name: Joi.string(),
+  image: Joi.string(),
+  numberOfJob: Joi.number(),
+  location: Joi.string(),
   isActive: Joi.boolean(),
   userId: Joi.number()
 };
