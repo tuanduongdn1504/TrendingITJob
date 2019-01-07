@@ -3,10 +3,10 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('company', (table) => {
     table.increments('id').primary();
-    // table.string('shortName').notNullable();
-    // table.json('displayName').notNullable();
-    // table.decimal('price', 12, 0).notNullable();
-    // table.text('description');
+    table.string('name').notNullable();
+    table.string('image');
+    table.integer('numberOfJob');
+    table.string('location');
     table.boolean('isActive').defaultTo(true);
     table.integer('userId');
     table

@@ -26,6 +26,11 @@ exports.seed = function (knex, Promise) {
       .then((users) =>
         knex('company').insert([
           {
+            name: 'Enouvo IT Solution',
+            image:
+              'https://cdn.itviec.com/photos/32631/processed_headline_photo/enouvo-headline_photo.jpg?SCQJMLCnrby1Dd5ioiRwXJsC',
+            numberOfJob: 5,
+            location: '15 Tạ Mỹ Duật, An Hải Bắc, Sơn Trà, Đà Nẵng',
             isActive: true,
             userId: users[0]
           }

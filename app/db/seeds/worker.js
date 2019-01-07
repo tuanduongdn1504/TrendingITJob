@@ -26,6 +26,12 @@ exports.seed = function (knex, Promise) {
       .then((users) =>
         knex('worker').insert([
           {
+            // name: 'Duong Van Tuan',
+            image:
+              'https://cdn.itviec.com/photos/32631/processed_headline_photo/enouvo-headline_photo.jpg?SCQJMLCnrby1Dd5ioiRwXJsC',
+            rating: 5,
+            location: '15 Tạ Mỹ Duật, An Hải Bắc, Sơn Trà, Đà Nẵng',
+            level: 'junior',
             isActive: true,
             userId: users[0]
           }

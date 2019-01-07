@@ -17,13 +17,21 @@ exports.idParam = idNumber()
   .description('id is required');
 
 exports.createPost = {
-  nameWorker: Joi.string().required(),
-  description: Joi.string(),
-  workerId: Joi.number().required()
+  title: Joi.string().required(),
+  image: Joi.string(),
+  personNeeded: Joi.number().required(),
+  location: Joi.string(),
+  salary: Joi.number(),
+  description: Joi.string().allow(null),
+  companyId: Joi.number().required()
 };
 
 exports.updatePost = {
-  nameWorker: Joi.string(),
-  description: Joi.string(),
-  workerId: Joi.number()
+  title: Joi.string(),
+  image: Joi.string(),
+  personNeeded: Joi.number(),
+  location: Joi.string(),
+  salary: Joi.number(),
+  description: Joi.string().allow(null),
+  companyId: Joi.number()
 };
