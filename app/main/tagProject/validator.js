@@ -17,13 +17,11 @@ exports.idParam = idNumber()
   .description('id is required');
 
 exports.createTagProject = {
-  nameWorker: Joi.string().required(),
-  description: Joi.string(),
-  workerId: Joi.number().required()
+  projectId: Joi.number().required(),
+  tagId: Joi.number().required()
 };
 
 exports.updateTagProject = {
-  nameWorker: Joi.string(),
-  description: Joi.string(),
-  workerId: Joi.number()
+  projectId: Joi.number(),
+  tagId: Joi.number()
 };
