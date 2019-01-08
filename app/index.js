@@ -122,7 +122,33 @@ const swaggerOptions = {
   basePath: apiVersionOptions.basePath,
   info: {
     title: 'TrendingITJob API Documentation',
-    description: 'This is a TrendingITJob API documentation.'
+    description:
+      'This is a TrendingITJob API documentation.' +
+      '\n' +
+      '###Basic api query use for getAll resources. Only support normal query if need complex or advanced use cases(fulltextsearch, geolocation...) contact server developers to support more.' +
+      '\n' +
+      '###$ Paginate with limit and offset. \nEx: ?limit=5&offset=5\n' +
+      '###$ Order by fields and order reverse use prefix "-". \n Ex: ?orderBy=age,-name' +
+      '\n' +
+      '###$ Include other relate models(rare case caution on use). \nEx: users?includes=books (user has many books)' +
+      '\n' +
+      '###$ Select field on query (Only use in single models). \nEx: ?fields=age,name' +
+      '\n' +
+      '###$ Filter equal \n?filter={"name": "Tuan"}' +
+      '\n' +
+      '###$ Filter less than \n?filter={"age": {"$lt": 40}}' +
+      '\n' +
+      '###$ Filter greater than \n?filter={"age": {"$gt": 20}}' +
+      '\n' +
+      '###$ Filter less than and equal \n?filter={"age": {"$lte": 40}}' +
+      '\n' +
+      '###$ Filter greater than equal \n?filter={"age": {"$gte": 20}}' +
+      '\n' +
+      '###$ Filter field in many choice \n?filter={"name": {"$in": ["Tuan", "MMMM"]}}' +
+      '\n' +
+      '###$ Filter array field is subset of parent array \n?filter={"tags": {"$all": ["JAV", "Lesbian"]}}' +
+      '\n' +
+      '###$ Filter field by text \n?filter={"name": {"$like": "%oan%"}}'
   },
   deReference: false
 };

@@ -10,7 +10,9 @@ exports.getAllTagProject = async (query) => {
 };
 
 exports.getOneTagProject = async (id) => {
-  const result = await Models.TagProject.query().findById(id);
+  const result = await Models.TagProject.query()
+    .findById(id)
+    .eager('[tags,projects]');
   if (!result) {
     throw Boom.notFound('TagProject not found');
   }

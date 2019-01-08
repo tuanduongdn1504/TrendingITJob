@@ -10,8 +10,9 @@ exports.getAllProductOwner = async (query) => {
 };
 
 exports.getOneProductOwner = async (id) => {
-  const result = await Models.ProductOwner.query().findById(id);
-  // .eager('users');
+  const result = await Models.ProductOwner.query()
+    .findById(id)
+    .eager('users');
   if (!result) {
     throw Boom.notFound('ProductOwner not found');
   }
