@@ -10,7 +10,7 @@ exports.seed = function (knex, Promise) {
         {
           title: 'iOS Developer (Objective C/Swift)',
           salary: 1500,
-          address: 'Dong Da , Tan Binh, Ho Chi Minh',
+          location: 'Dong Da , Tan Binh, Ho Chi Minh',
           description: 'Top 3 Reasons To Join Us',
           productOwnerId: 1
         }

@@ -17,13 +17,11 @@ exports.idParam = idNumber()
   .description('id is required');
 
 exports.createTagPost = {
-  nameWorker: Joi.string().required(),
-  description: Joi.string(),
-  workerId: Joi.number().required()
+  postId: Joi.number().required(),
+  tagId: Joi.number().required()
 };
 
 exports.updateTagPost = {
-  nameWorker: Joi.string(),
-  description: Joi.string(),
-  workerId: Joi.number()
+  postId: Joi.number(),
+  tagId: Joi.number()
 };

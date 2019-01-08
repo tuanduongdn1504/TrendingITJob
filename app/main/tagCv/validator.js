@@ -17,13 +17,11 @@ exports.idParam = idNumber()
   .description('id is required');
 
 exports.createTagCv = {
-  nameWorker: Joi.string().required(),
-  description: Joi.string(),
-  workerId: Joi.number().required()
+  cvId: Joi.number().required(),
+  tagId: Joi.number().required()
 };
 
 exports.updateTagCv = {
-  nameWorker: Joi.string(),
-  description: Joi.string(),
-  workerId: Joi.number()
+  cvId: Joi.number(),
+  tagId: Joi.number()
 };
