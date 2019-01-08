@@ -10,7 +10,9 @@ exports.getAllCv = async (query) => {
 };
 
 exports.getOneCv = async (id) => {
-  const result = await Models.Cv.query().findById(id);
+  const result = await Models.Cv.query()
+    .findById(id)
+    .eager('workers');
   if (!result) {
     throw Boom.notFound('Cv not found');
   }

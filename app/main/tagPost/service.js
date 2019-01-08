@@ -10,7 +10,9 @@ exports.getAllTagPost = async (query) => {
 };
 
 exports.getOneTagPost = async (id) => {
-  const result = await Models.TagPost.query().findById(id);
+  const result = await Models.TagPost.query()
+    .findById(id)
+    .eager('[tags,posts]');
   if (!result) {
     throw Boom.notFound('TagPost not found');
   }

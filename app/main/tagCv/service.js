@@ -10,7 +10,9 @@ exports.getAllTagCv = async (query) => {
 };
 
 exports.getOneTagCv = async (id) => {
-  const result = await Models.TagCv.query().findById(id);
+  const result = await Models.TagCv.query()
+    .findById(id)
+    .eager('[tags,cvs]');
   if (!result) {
     throw Boom.notFound('TagCv not found');
   }

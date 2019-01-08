@@ -10,7 +10,9 @@ exports.getAllProject = async (query) => {
 };
 
 exports.getOneProject = async (id) => {
-  const result = await Models.Project.query().findById(id);
+  const result = await Models.Project.query()
+    .findById(id)
+    .eager('productOwners');
   if (!result) {
     throw Boom.notFound('Project not found');
   }

@@ -10,7 +10,9 @@ exports.getAllPost = async (query) => {
 };
 
 exports.getOnePost = async (id) => {
-  const result = await Models.Post.query().findById(id);
+  const result = await Models.Post.query()
+    .findById(id)
+    .eager('companies');
   if (!result) {
     throw Boom.notFound('Post not found');
   }
