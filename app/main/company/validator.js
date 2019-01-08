@@ -19,7 +19,7 @@ exports.idParam = idNumber()
 exports.createCompany = {
   name: Joi.string().required(),
   image: Joi.string(),
-  numberOfJob: Joi.number().required(),
+  numberOfJob: Joi.number(),
   location: Joi.string(),
   isActive: Joi.boolean(),
   userId: Joi.number().required()
