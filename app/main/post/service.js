@@ -21,6 +21,17 @@ exports.getOnePost = async (id) => {
 };
 
 exports.createPost = async (body) => {
+  const company = await Models.Company.query().findById(body.companyId);
+  if (!company) {
+    throw Boom.badRequest('Invalid companyId');
+  }
+  company.numberOfJob >= 0
+    ? (company.numberOfJob = company.numberOfJob + 1)
+    : (company.numberOfJob = 1);
+  await Models.Company.query()
+    .update(company)
+    .where('id', body.companyId)
+    .returning('*');
   return Models.Post.query().insert(body);
 };
 
@@ -44,6 +55,20 @@ exports.updatePost = async (id, body) => {
 };
 
 exports.deletePost = async (id) => {
+  const post = await Models.Post.query().findById(id);
+
+  const company = await Models.Company.query().findById(post.companyId);
+  if (!company) {
+    throw Boom.badRequest('Invalid companyId');
+  }
+  company.numberOfJob > 0
+    ? (company.numberOfJob = company.numberOfJob - 1)
+    : (company.numberOfJob = 0);
+
+  await Models.Company.query()
+    .update(company)
+    .where('id', post.companyId)
+    .returning('*');
   try {
     const result = await Models.Post.query()
       .deleteById(id)
@@ -58,12 +83,12 @@ exports.deletePost = async (id) => {
   }
 };
 
-exports.deletePost = async (id) => {
-  try {
-    return Models.Post.query()
-      .deleteById(id)
-      .returning('*');
-  } catch (err) {
-    throw err;
-  }
-};
+// exports.deletePost = async (id) => {
+//   try {
+//     return Models.Post.query()
+//       .deleteById(id)
+//       .returning('*');
+//   } catch (err) {
+//     throw err;
+//   }
+// };

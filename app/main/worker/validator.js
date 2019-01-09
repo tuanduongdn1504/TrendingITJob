@@ -17,7 +17,7 @@ exports.idParam = idNumber()
   .description('id is required');
 
 exports.createWorker = {
-  // name: Joi.string().required(),
+  name: Joi.string().required(),
   level: Joi.string(),
   image: Joi.string(),
   rating: Joi.number(),
@@ -27,7 +27,7 @@ exports.createWorker = {
 };
 
 exports.updateWorker = {
-  // name: Joi.string(),
+  name: Joi.string(),
   level: Joi.string(),
   image: Joi.string(),
   rating: Joi.number(),
