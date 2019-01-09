@@ -8,10 +8,12 @@ exports.seed = function (knex, Promise) {
       // Inserts seed entries
       return knex('project').insert([
         {
-          title: 'iOS Developer (Objective C/Swift)',
-          salary: 1500,
-          location: 'Dong Da , Tan Binh, Ho Chi Minh',
-          description: 'Top 3 Reasons To Join Us',
+          nameProject: 'DanaQueue (React-Native/ReactJs/NodeJs/Firebase)',
+          image:
+            'https://cdn.itviec.com/photos/32631/processed_headline_photo/enouvo-headline_photo.jpg?SCQJMLCnrby1Dd5ioiRwXJsC',
+          personNeeded: 4,
+          location: '15 Tạ Mỹ Duật, An Hải Bắc, Sơn Trà, Đà Nẵng',
+          owner: 'Duong Van Tuan',
           productOwnerId: 1
         }
       ]);

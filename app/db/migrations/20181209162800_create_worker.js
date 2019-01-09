@@ -3,7 +3,7 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('worker', (table) => {
     table.increments('id').primary();
-    // table.string('name').notNullable();
+    table.string('name').notNullable();
     table.string('image');
     table.integer('rating');
     table.string('location');

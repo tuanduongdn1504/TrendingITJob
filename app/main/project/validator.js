@@ -17,17 +17,19 @@ exports.idParam = idNumber()
   .description('id is required');
 
 exports.createProject = {
-  title: Joi.string(),
+  nameProject: Joi.string().required(),
+  image: Joi.string(),
+  personNeeded: Joi.number(),
   location: Joi.string(),
-  salary: Joi.number(),
-  description: Joi.string().allow(null),
+  owner: Joi.string().allow(null),
   productOwnerId: Joi.number()
 };
 
 exports.updateProject = {
-  title: Joi.string(),
+  nameProject: Joi.string(),
+  image: Joi.string(),
+  personNeeded: Joi.number(),
   location: Joi.string(),
-  salary: Joi.number(),
-  description: Joi.string().allow(null),
+  owner: Joi.string().allow(null),
   productOwnerId: Joi.number()
 };

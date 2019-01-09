@@ -26,7 +26,7 @@ exports.seed = function (knex, Promise) {
       .then((users) =>
         knex('worker').insert([
           {
-            // name: 'Duong Van Tuan',
+            name: 'Duong Van Tuan',
             image:
               'https://cdn.itviec.com/photos/32631/processed_headline_photo/enouvo-headline_photo.jpg?SCQJMLCnrby1Dd5ioiRwXJsC',
             rating: 5,
