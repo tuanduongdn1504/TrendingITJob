@@ -21,7 +21,7 @@ exports.createPost = {
   image: Joi.string(),
   personNeeded: Joi.number().required(),
   location: Joi.string(),
-  salary: Joi.number(),
+  salary: Joi.number().required(),
   description: Joi.string().allow(null),
   companyId: Joi.number().required()
 };
