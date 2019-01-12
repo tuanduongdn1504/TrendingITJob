@@ -16,8 +16,20 @@ exports.seed = function (knex, Promise) {
           tagId: 2
         },
         {
-          postId: 1,
+          postId: 2,
           tagId: 3
+        },
+        {
+          postId: 2,
+          tagId: 1
+        },
+        {
+          postId: 3,
+          tagId: 1
+        },
+        {
+          postId: 2,
+          tagId: 2
         }
       ]);
     });

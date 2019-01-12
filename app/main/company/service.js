@@ -1,6 +1,7 @@
 'use strict';
 
 const Boom = require('boom');
+const _ = require('lodash');
 const Models = require('../../db/models');
 const bcrypt = require('bcrypt');
 const { ROLES, ROLENAMES } = require('../../constants/roles');
@@ -17,7 +18,7 @@ exports.getOneCompany = async (id) => {
     throw Boom.notFound('Company not found');
   }
 
-  return result;
+  return _.omit(result, 'users.roleId', 'users.password');
 };
 
 exports.createCompany = async (body) => {
