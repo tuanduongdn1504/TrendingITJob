@@ -1,6 +1,7 @@
 'use strict';
 
 const Boom = require('boom');
+const _ = require('lodash');
 const moment = require('moment');
 const Models = require('../../db/models');
 const bcrypt = require('bcrypt');
@@ -41,7 +42,7 @@ exports.getOneWorker = async (id) => {
     throw Boom.notFound('Worker not found');
   }
 
-  return result;
+  return _.omit(result, 'users.roleId', 'users.password');
 };
 
 exports.createWorker = async (body) => {

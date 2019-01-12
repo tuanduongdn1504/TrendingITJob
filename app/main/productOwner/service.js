@@ -1,6 +1,7 @@
 'use strict';
 
 const Boom = require('boom');
+const _ = require('lodash');
 const Models = require('../../db/models');
 const bcrypt = require('bcrypt');
 const { ROLES, ROLENAMES } = require('../../constants/roles');
@@ -17,7 +18,7 @@ exports.getOneProductOwner = async (id) => {
     throw Boom.notFound('ProductOwner not found');
   }
 
-  return result;
+  return _.omit(result, 'users.roleId', 'users.password');
 };
 
 exports.createProductOwner = async (body) => {

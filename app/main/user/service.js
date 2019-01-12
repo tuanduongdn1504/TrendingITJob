@@ -17,7 +17,7 @@ exports.getOneUser = async (id) => {
     throw Boom.notFound('User not found');
   }
 
-  return result;
+  return _.omit(result, 'roleId', 'password');
 };
 
 exports.createUser = async (body) => {

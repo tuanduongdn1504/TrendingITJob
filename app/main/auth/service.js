@@ -63,14 +63,14 @@ exports.register = async (body) => {
 
     const result = await userService.createUser(body);
     const data = _.pick(result, ['username', 'email', 'id', 'scope']);
-    switch (body.roleId) {
-      case 2:
-        await productOwnerService.createProductOwner({ userId: data.id });
-      case 3:
-        await companyService.createCompany({ userId: data.id });
-      case 4:
-        await workerService.createWorker({ userId: data.id });
-    }
+    // switch (body.roleId) {
+    //   case 2:
+    //     await productOwnerService.createProductOwner({ userId: data.id });
+    //   case 3:
+    //     await companyService.createCompany({ userId: data.id });
+    //   case 4:
+    //     await workerService.createWorker({ userId: data.id });
+    // }
 
     return await _.assign({ token: createJwtToken(data) }, data);
   } catch (err) {
